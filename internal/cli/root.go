@@ -12,6 +12,10 @@ func runVerb(ctx *CLIContext) error {
 		return runGet(ctx)
 	case "describe":
 		return runDescribe(ctx)
+	case "watch":
+		return runWatch(ctx)
+	case "check":
+		return runCheck(ctx)
 	default:
 		return fmt.Errorf("%w %q", errUnknownCommand, ctx.Verb)
 	}
