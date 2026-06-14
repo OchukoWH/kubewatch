@@ -1,0 +1,25 @@
+# Binaries
+
+bin/
+dist/
+build/
+*.exe
+*.exe~
+kubewatch-lite-build-guide-v2.md
+kubewatch-lite-build-guide.md
+go-cloudnative-docs-guide.md
+
+# IDE
+
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment Variables
+
+.env
+.env.*
+!.env.example
+
