@@ -3,10 +3,12 @@ package main
 import (
 	"fmt"
 	"os"
+
+	cli "github.com/OchukoWH/kubewatch/internal/cli"
 )
 
 func main() {
-	kubeconfig, err := run(os.Args[1:])
+	kubeconfig, err := cli.Run(os.Args[1:])
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)

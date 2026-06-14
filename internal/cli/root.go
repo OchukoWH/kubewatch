@@ -23,7 +23,7 @@ func runVerb(verb string, namespace string, args []string) error {
 }
 
 // Main entry into the bin
-func run(args []string) (string, error) {
+func Run(args []string) (string, error) {
 	kubeconfig, err := defaultKubeconfig()
 	var namespace string
 	if err != nil {
