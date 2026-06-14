@@ -75,8 +75,34 @@ func splitVerb(args []string) (string, []string, bool) {
 	return "", args, false
 }
 
-// func splitResourceType(args []string) (string, []string, bool) {
-// 	for index := 0; index < len(args); index++ {
+// Get the resource type we want like pod, deploy, etc
+func getResourceType(args []string) (string, []string, bool) {
+	for index := 0; index < len(args); index++ {
+		arg := args[index]
+		isNameSpace := isNamespaceFlag(arg)
+		if isNameSpace {
+			index++
+			continue
+		}
 
-// 	}
-// }
+		isSubcommand := isFlag(arg)
+		if isSubcommand {
+			continue
+		}
+
+		verb := isVerb(arg)
+		if verb {
+			continue
+		}
+
+		if arg != "" {
+			resource, ok := ResourceAliases[arg]
+			if ok {
+				remainingArgs := append(args[:index:index], args[index+1:]...)
+				return resource, remainingArgs, true
+			}
+		}
+	}
+
+	return "", args, false
+}
