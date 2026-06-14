@@ -1,3 +1,3 @@
-module github.com/whoroochuko/kubewatch-lite
+module github.com/OchukoWH/kubewatch
 
 go 1.26.3
